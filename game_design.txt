@@ -1,0 +1,17 @@
++ Greed
+    + data
+    + game
+        + casting
+            • actor
+            • artifact
+            • cast
+        + directing
+            • director
+        + services
+            • keyboard_service
+            • video_service
+        + shared
+            • color
+            • point
+    • __main__
+• README.md
