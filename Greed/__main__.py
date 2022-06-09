@@ -22,7 +22,7 @@ FONT_SIZE = 15
 COLS = 60
 ROWS = 40
 CAPTION = "Robot Finds Kitten"
-DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
+DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/message.txt"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = 40
 
@@ -42,7 +42,7 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2)
-    y = int(MAX_Y / 2)
+    y = int(MAX_Y / -8)
     position = Point(x, y)
 
     robot = Actor()
@@ -65,6 +65,7 @@ def main():
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
+        velocity = Point(0, 2)
 
         r = random.randint(0, 255)
         g = random.randint(0, 255)
@@ -77,6 +78,7 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         artifact.set_message(message)
+        artifact.set_velocity(velocity)
         cast.add_actor("artifacts", artifact)
     
     # start the game

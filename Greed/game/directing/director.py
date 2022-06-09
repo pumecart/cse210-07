@@ -62,10 +62,17 @@ class Director:
         robot.move_next(max_x, max_y)
         
         for artifact in artifacts:
+<<<<<<< HEAD
             if robot.get_position().equals(gem.get_position()):
                 score += 1   
             else:
                 score -=1
+=======
+            artifact.move_next(max_x, max_y)
+            if robot.get_position().equals(artifact.get_position()):
+                message = artifact.get_message()
+                banner.set_text(message)    
+>>>>>>> 3ed35da5ce7d8f93203d6056227658262fd5ce36
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
