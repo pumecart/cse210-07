@@ -70,8 +70,8 @@ class Director:
             if robot.get_position().equals(artifact.get_position()):
                 message = artifact.get_message()
                 banner.set_text(message) 
-                # gems = cast.get_actors("Gems")
         
+        gems = cast.get_actors("Gems")
         for n in range(len(gems)):
             if artifact.get_position(obs[n]) == robot.get_position():
                 cast.remove_actor("Gems", gems[n])
