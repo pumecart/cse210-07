@@ -62,17 +62,25 @@ class Director:
         robot.move_next(max_x, max_y)
         
         for artifact in artifacts:
-<<<<<<< HEAD
             if robot.get_position().equals(gem.get_position()):
                 score += 1   
             else:
                 score -=1
-=======
             artifact.move_next(max_x, max_y)
             if robot.get_position().equals(artifact.get_position()):
                 message = artifact.get_message()
-                banner.set_text(message)    
->>>>>>> 3ed35da5ce7d8f93203d6056227658262fd5ce36
+                banner.set_text(message) 
+                # gems = cast.get_actors("Gems")
+        
+        for n in range(len(gems)):
+            if artifact.get_position(obs[n]) == robot.get_position():
+                cast.remove_actor("Gems", gems[n])
+
+        obs = cast.get_actors("Obstacles")
+        for n in range(len(obs)):
+            artifact.get_position(obs[n])
+            if artifact.get_position(obs[n]) == robot.get_position():
+                cast.remove_actor("Obstacles", obs[n])   
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
