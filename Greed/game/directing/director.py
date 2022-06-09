@@ -10,6 +10,7 @@ class Director:
         _keyboard_service (KeyboardService): For getting directional input.
         _video_service (VideoService): For providing video output.
     """
+    score = 0
 
     def __init__(self, keyboard_service, video_service):
         """Constructs a new Director using the specified keyboard and video services.
@@ -33,6 +34,7 @@ class Director:
             self._do_updates(cast)
             self._do_outputs(cast)
         self._video_service.close_window()
+        
 
     def _get_inputs(self, cast):
         """Gets directional input from the keyboard and applies it to the robot.
@@ -44,7 +46,7 @@ class Director:
         velocity = self._keyboard_service.get_direction()
         robot.set_velocity(velocity)        
 
-    def _do_updates(self, cast):
+    def _do_updates(self, cast, score):
         """Updates the robot's position and resolves any collisions with artifacts.
         
         Args:
@@ -60,9 +62,10 @@ class Director:
         robot.move_next(max_x, max_y)
         
         for artifact in artifacts:
-            if robot.get_position().equals(artifact.get_position()):
-                message = artifact.get_message()
-                banner.set_text(message)    
+            if robot.get_position().equals(gem.get_position()):
+                score += 1   
+            else:
+                score -=1
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
