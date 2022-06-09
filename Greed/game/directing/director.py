@@ -65,7 +65,7 @@ class Director:
 <<<<<<< HEAD
             if robot.get_position().equals(gem.get_position()):
                 score += 1   
-            else:
+            if robot.get_position().equals(obstacle.get_position()):
                 score -=1
 =======
             artifact.move_next(max_x, max_y)
