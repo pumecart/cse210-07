@@ -46,7 +46,7 @@ class Director:
         velocity = self._keyboard_service.get_direction()
         robot.set_velocity(velocity)        
 
-    def _do_updates(self, cast, score):
+    def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
         
         Args:
