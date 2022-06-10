@@ -70,13 +70,13 @@ class Director:
         for n in range(len(gems)):
             if artifact.get_position(obs[n]) == robot.get_position():
                 cast.remove_actor("Gems", gems[n])
-                score += 1
+                self._score += 1
 
         for n in range(len(obs)):
             artifact.get_position(obs[n])
             if artifact.get_position(obs[n]) == robot.get_position():
                 cast.remove_actor("Obstacles", obs[n])
-                score -= 1   
+                self._score -= 1   
                 
         
     def _do_outputs(self, cast):
