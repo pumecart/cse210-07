@@ -24,6 +24,7 @@ ROWS = 40
 CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/message.txt"
 WHITE = Color(255, 255, 255)
+GREEN = Color(0,255,0)
 DEFAULT_ARTIFACTS = 40
 
 
@@ -36,7 +37,7 @@ def main():
     banner = Actor()
     banner.set_text("")
     banner.set_font_size(FONT_SIZE)
-    banner.set_color(WHITE)
+    banner.set_color(GREEN)
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
     
