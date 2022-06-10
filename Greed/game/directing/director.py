@@ -10,7 +10,7 @@ class Director:
         _keyboard_service (KeyboardService): For getting directional input.
         _video_service (VideoService): For providing video output.
     """
-    
+
 
     def __init__(self, keyboard_service, video_service):
         """Constructs a new Director using the specified keyboard and video services.
@@ -77,8 +77,8 @@ class Director:
             if artifact.get_position(obs[n]) == robot.get_position():
                 cast.remove_actor("Obstacles", obs[n])
                 self._score -= 1   
-                
-        
+
+
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
         
