@@ -25,8 +25,8 @@ CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/message.txt"
 WHITE = Color(255, 255, 255)
 GREEN = Color(0,255,0)
-DEFAULT_ARTIFACTS = 20
-GEMS = chr(1) # "*"
+DEFAULT_ARTIFACTS = 150
+GEMS = chr(36) # "*"
 OBSTACLES = chr(79) # "O"
 
 
@@ -68,7 +68,7 @@ def main():
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
-        velocity = Point(0, 2)
+        velocity = Point(0, 1)
 
         r = random.randint(0, 255)
         g = random.randint(0, 255)
@@ -92,7 +92,7 @@ def main():
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
-        velocity = Point(0, 2)
+        velocity = Point(0, 1)
 
         r = random.randint(0, 255)
         g = random.randint(0, 255)

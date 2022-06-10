@@ -75,10 +75,10 @@ class Director:
                 cast.remove_actor("Gems", gems[n])
                 self._score += 1
 
-        for n in range(len(obs)):
+        for n in range(len(gems)):
             if obs[n].get_position().equals(robot.get_position()):
                 cast.remove_actor("Obstacles", obs[n])
-                self._score -= 1   
+                self._score -= 5   
 
 
     def _do_outputs(self, cast):
