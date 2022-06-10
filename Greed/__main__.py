@@ -25,7 +25,9 @@ CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/message.txt"
 WHITE = Color(255, 255, 255)
 GREEN = Color(0,255,0)
-DEFAULT_ARTIFACTS = 40
+DEFAULT_ARTIFACTS = 20
+GEMS = chr(1) # "*"
+OBSTACLES = chr(79) # "O"
 
 
 def main():
@@ -59,7 +61,7 @@ def main():
         messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS):
-        text = chr(169)
+        text = GEMS
         message = messages[n]
 
         x = random.randint(1, COLS - 1)
@@ -80,7 +82,31 @@ def main():
         artifact.set_position(position)
         artifact.set_message(message)
         artifact.set_velocity(velocity)
-        cast.add_actor("artifacts", artifact)
+        cast.add_actor("Gems", artifact)
+
+    for n in range(DEFAULT_ARTIFACTS):
+        text = OBSTACLES
+        message = messages[n]
+
+        x = random.randint(1, COLS - 1)
+        y = random.randint(1, ROWS - 1)
+        position = Point(x, y)
+        position = position.scale(CELL_SIZE)
+        velocity = Point(0, 2)
+
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        color = Color(r, g, b)
+        
+        artifact = Artifact()
+        artifact.set_text(text)
+        artifact.set_font_size(FONT_SIZE)
+        artifact.set_color(color)
+        artifact.set_position(position)
+        artifact.set_message(message)
+        artifact.set_velocity(velocity)
+        cast.add_actor("Obstacles", artifact)
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)

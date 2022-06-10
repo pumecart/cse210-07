@@ -64,17 +64,19 @@ class Director:
 
         gems = cast.get_actors("Gems")
         obs = cast.get_actors("Obstacles")
-        for artifact in artifacts:
+        
+        for artifact in gems:
+            artifact.move_next(max_x, max_y)
+        for artifact in obs:
             artifact.move_next(max_x, max_y)
         
         for n in range(len(gems)):
-            if artifact.get_position(obs[n]) == robot.get_position():
+            if gems[n].get_position().equals(robot.get_position()):
                 cast.remove_actor("Gems", gems[n])
                 self._score += 1
 
         for n in range(len(obs)):
-            artifact.get_position(obs[n])
-            if artifact.get_position(obs[n]) == robot.get_position():
+            if obs[n].get_position().equals(robot.get_position()):
                 cast.remove_actor("Obstacles", obs[n])
                 self._score -= 1   
 
