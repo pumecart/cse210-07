@@ -26,8 +26,8 @@ DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/message.txt"
 WHITE = Color(255, 255, 255)
 GREEN = Color(0,255,0)
 DEFAULT_ARTIFACTS = 40
-GEMS = chr(164) # "*"
-OBSTACLES = chr(64) # "O"
+GEMS = chr(42) # "*" 164
+OBSTACLES = chr(79) # "O" 64
 
 
 def main():
