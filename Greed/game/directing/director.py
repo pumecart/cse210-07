@@ -1,6 +1,14 @@
 #gems group and objects group
 # * is 42
 # box is 169
+import random
+from game.casting.actor import Actor
+from game.casting.artifact import Artifact
+
+from game.shared.point import Point
+from game.shared.color import Color
+
+
 class Director:
     """A person who directs the game. 
     
@@ -74,11 +82,53 @@ class Director:
             if gems[n].get_position().equals(robot.get_position()):
                 cast.remove_actor("Gems", gems[n])
                 self._score += 1
+                message = 'o'
 
-        for n in range(len(gems)):
+                r = random.randint(0, 255)
+                g = random.randint(0, 255)
+                b = random.randint(0, 255)
+                color = Color(r, g, b)
+
+                x = random.randint(1, 60 - 1)
+                y = 1
+                position = Point(x, y)
+                position = position.scale(15)
+                velocity = Point(0, 1)
+
+                artifact = Artifact()
+                artifact.set_text(chr(42))
+                artifact.set_font_size(15)
+                artifact.set_color(color)
+                artifact.set_position(position)
+                artifact.set_message(message)
+                artifact.set_velocity(velocity)
+                cast.add_actor("Gems", artifact)
+
+        for n in range(len(obs)):
             if obs[n].get_position().equals(robot.get_position()):
                 cast.remove_actor("Obstacles", obs[n])
-                self._score -= 1 #5   
+                self._score -= 1 #5  
+                message = 'o'
+
+                r = random.randint(0, 255)
+                g = random.randint(0, 255)
+                b = random.randint(0, 255)
+                color = Color(r, g, b)
+
+                x = random.randint(1, 60 - 1)
+                y = 1
+                position = Point(x, y)
+                position = position.scale(15)
+                velocity = Point(0, 1)
+
+                artifact = Artifact()
+                artifact.set_text(chr(42))
+                artifact.set_font_size(15)
+                artifact.set_color(color)
+                artifact.set_position(position)
+                artifact.set_message(message)
+                artifact.set_velocity(velocity)
+                cast.add_actor("Obstacles", artifact)                 
 
 
     def _do_outputs(self, cast):
